@@ -1,6 +1,8 @@
 import Header from "./components/Header"
 import Resultado from "./components/Resultado"
 import { useEffect, useState } from "react"
+import "./css/estilo.css"
+import "./css/global.css"
 
 
 function App() {
@@ -11,9 +13,19 @@ function App() {
   const [resultado, setResultado] = useState(0);
   const [mostrarResultado, setMostrarResultado] = useState(false)
 
-  const calcularImc=()=>{
-    const imc = peso/(altura*peso)
-    return setResultado(imc.toFixed(2))
+  //CRIANDO A FUNÇÃO CALCULAR
+  //CRIANDO A FUNÇÃO CALCULAR IMC
+  const calcularImc=(e)=>{
+    e.preventDefault(); //evita o carregamento da página(loading)
+    if(altura >0 && peso >0){
+      const imc = peso/(altura * altura);
+      setResultado(imc.toFixed(2))//arrendoda para 2 casas decimais
+      setMostrarResultado(true);
+    }else{
+      alert("Por favor insira valores Válidos");
+      setMostrarResultado(false)
+    }
+   
   }
 
   // HOOK - useEffect - realiza um efeito colateral -mostrar resultado
