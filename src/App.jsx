@@ -55,7 +55,10 @@ function App() {
         <button onClick={calcularImc}>Calcular</button>
     </form>
     </div>
-
+    <footer>
+      <h5>Desenvolvido por: Gabriel Akira - v1.0</h5>
+      <p>&copy;2025 todos os direitos reservados</p>
+    </footer>
     {mostrarResultado &&(
       <Resultado resultado={resultado}/>
     )}
